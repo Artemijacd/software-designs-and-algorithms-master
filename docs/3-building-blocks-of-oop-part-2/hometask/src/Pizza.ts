@@ -11,17 +11,18 @@ export class Pizza extends Consumable {
     }
 
     public eat(): void {
+        if (this.isSpoiled()) {
+            if (this.slicesEaten < this.numberOfSlices){
+                this.slicesEaten++;
+                console.log("You eat a slice of the pizza.");
+                if (this.slicesEaten >= this.numberOfSlices) {
+                    this.setConsumed(true);
+                    console.log("All gone!");
+                }
 
-        if (this.slicesEaten < this.numberOfSlices){
-            this.slicesEaten++;
-            console.log("You eat a slice of the pizza.");
-            if (this.slicesEaten >= this.numberOfSlices) {
-                this.setConsumed(true);
-                console.log("All gone!");
+            } else {
+                console.log("You've got no pizza");    
             }
-
-        } else {
-            console.log("You've got no pizza");    
         }
     }
 }

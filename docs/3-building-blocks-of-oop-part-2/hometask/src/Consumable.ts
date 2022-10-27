@@ -36,7 +36,10 @@ export abstract class Consumable extends Item {
     }
 
     public toString(): string {
-        return `Id: ${this.getId()} || ${this.getName()} - Value: ${this.getValue()}, Weight: ${this.getWeight()}`;
+        return `${this.getName()} - Value: ${this.getValue()}, Weight: ${this.getWeight()}`;
     }
 
+    public isSpoiled() {
+        return this.spoiled;
+    }
 }

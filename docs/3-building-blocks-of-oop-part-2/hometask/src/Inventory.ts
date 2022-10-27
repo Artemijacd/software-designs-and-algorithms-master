@@ -17,10 +17,10 @@ export class Inventory {
 
     public sort(comparator?: ItemWeightComparator): void {
         if (comparator === undefined) {
-            this.items.sort((a, b) => a.getValue() - b.getValue());
+            this.items.sort((a, b) => a.compareTo(b));
         } else {
             this.items.sort((a, b) => comparator.compare(a, b));
-        }
+        }  
     }
 
     public toString(): string {

@@ -4,18 +4,16 @@ let id = 0;
 
 export abstract class Item implements Comparable<Item> {
     
-    private id: number;
+    private readonly id: number;
     private value: number;
     private weight: number;
     private name: string;
 
-
-    constructor(name: string, value: number, weight: number);
     constructor(name: string, value: number, weight: number) {
-        this.setNumberOfItems();
-        this.setName(name)
-        this.setValue(value);
-        this.setWeight(weight)
+        this.id = id++;
+        this.name = name;
+        this.value = value;
+        this.weight = weight;
     }
 
     public use(): void {}
@@ -31,7 +29,7 @@ export abstract class Item implements Comparable<Item> {
     }
 
     public toString(): string {
-        return `Id: ${this.getId()} || ${this.getName()} - Value: ${this.getValue()}, Weight: ${this.getWeight()}`;
+        return `${this.getName()} - Value: ${this.getValue()}, Weight: ${this.getWeight()}`;
     }
 
     public getId(): number {
@@ -48,22 +46,6 @@ export abstract class Item implements Comparable<Item> {
 
     public getWeight(): number {
         return Number(this.weight.toFixed(2));
-    }
-
-    public setValue(price: number): void {
-        this.value = price;
-    }
-
-    public setName(name: string): void {
-        this.name = name;
-    }
-
-    public setWeight(weight: number): void {
-        this.weight = weight;
-    }
-
-    public setNumberOfItems(): void {
-        this.id = id++;
     }
 
     public static reset(): void {
