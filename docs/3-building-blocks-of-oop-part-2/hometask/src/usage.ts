@@ -13,9 +13,9 @@ const inventory: Inventory = new Inventory();
 // Create a set of items
 const a: Item = new Sword(30.4219, 0.7893, 300, 2.032);
 const b: Item = new Sword(40, 0.7893, 200, 2);
-Item.reset();
-const c: Item = new Sword(40, 1, 100, 3);
-const d: Item = new Bow(25, 0.921, 150, 1.703);
+//Item.reset();
+const c: Item = new Sword(40, 0.811, 100, 3);
+const d: Item = new Bow(25, 0.721, 150, 1.703);
 const e: Item = new Sword(35, 0.9, 250, 1.873);
 const f: Item = new Bow(21, 0.8343, 250, 1.212);
 const g: Item = new Bow(17, 0.5123, 210, 0.945);
@@ -64,25 +64,29 @@ inventory.sort(new ItemWeightComparator());
 console.log('Display the inventory again \n', inventory.toString());
 
 // Use the sword
-//console.log(a.use());
-//console.log(a.use());
+
+// console.log(a.use());
+// console.log(a.use());
 
 const useSword = 15;
-const polishSword = 10;
+const polishSword = 100;
 const useBow = 5;
 const polishBow = 10;
+
+console.log(a.toString());
+a.use();
 
 for (let i = 0; i <= useSword; i++) {
     a.use();
 }
 for (let i = 0; i <= polishSword; i++) {
-    const ee = e as Weapon;
-    ee.polish();
+    const bb = b as Weapon;
+    bb.polish();
 }
 a.use();
 a.use();
 for (let i = 0; i <= useBow; i++) {
-    d.use();
+    b.use();
 }
 
 for (let i = 0; i <= polishBow; i++) {
