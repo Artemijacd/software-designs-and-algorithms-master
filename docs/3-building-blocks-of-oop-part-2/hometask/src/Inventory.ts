@@ -20,7 +20,7 @@ export class Inventory {
             this.items.sort((a, b) => a.compareTo(b));
         } else {
             this.items.sort((a, b) => comparator.compare(a, b));
-        }  
+        }
     }
 
     public toString(): string {

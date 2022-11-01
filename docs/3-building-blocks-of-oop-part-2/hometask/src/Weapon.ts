@@ -1,4 +1,5 @@
 import { Item } from "./Item";
+
 export class Weapon extends Item {
     private baseDamage: number;
     private damageModifier: number;

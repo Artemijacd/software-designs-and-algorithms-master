@@ -19,5 +19,4 @@ export class Sword extends Weapon {
         console.log(`Damage of your sword has been increased on 25%.`);
         
     }
-
 }

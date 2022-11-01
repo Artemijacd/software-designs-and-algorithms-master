@@ -64,6 +64,7 @@ inventory.sort(new ItemWeightComparator());
 console.log('Display the inventory again \n', inventory.toString());
 
 // Use the sword
+
 // console.log(a.use());
 // console.log(a.use());
 

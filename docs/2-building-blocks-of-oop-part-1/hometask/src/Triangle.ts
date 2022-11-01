@@ -3,18 +3,20 @@ import { Shape } from './Shape';
 
 export class Triangle extends Shape {
 
-    constructor(p1: Point, p2: Point, p3: Point);
-    constructor(p1?: Point, p2?: Point, p3?: Point) {
-        if (p1 !== undefined && p2 !== undefined && p3 !== undefined) {
+    constructor(p1: Point, p2: Point, p3: Point, color: string, filled: boolean);
+    constructor(p1: Point, p2: Point, p3: Point, color?: string, filled?: boolean) {
+        if (color !== undefined && filled !== undefined) {
+            super([p1, p2, p3], color, filled);
+        } else {
             super([p1, p2, p3]);
         }
     }
 
-    toString(): string {
-        return `Triangle[v1=${this.points[0]},v2=${this.points[1]},v3=${this.points[2]}]`
+    public toString(): string {
+        return `Triangle[${this.points.map((point, index) => `v${++index}=${point}`)}]`
     }
 
-    getType(): string {
+    public getType(): string {
 
         let index = 0;
         const result = this.points.filter(point => (index++, 
@@ -29,7 +31,7 @@ export class Triangle extends Shape {
         }
     }
 
-    _isEqual(dist1: number, dist2: number): boolean {
+    private _isEqual(dist1: number, dist2: number): boolean {
         return Math.abs(dist1 - dist2) < 0.2;
     }
 }
