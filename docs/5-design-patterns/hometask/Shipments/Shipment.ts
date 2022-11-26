@@ -38,10 +38,9 @@ export abstract class Shipment implements Shippable {
         return this.ShipmentId;
     }
 
-    public ship(): string {
-        return `Shipment with the Id: ${this.getShipmentId()}; will be picked up from ${this.getFromZipCode()} ${this.getFromAddress()} and shipped to ${this.getToZipCode()} ${this.getToAddress()}
-Cost: ${this.getCost()}$
-${this.getMarks().map(mark => mark)}`
+    public ship(): void {
+        console.log(`Shipment with the Id: ${this.getShipmentId()}; will be picked up from ${this.getFromZipCode()} ${this.getFromAddress()} and shipped to ${this.getToZipCode()} ${this.getToAddress()}
+Cost: ${this.getCost()}$`);
     }
 
     public getWeight() {
@@ -55,7 +54,6 @@ ${this.getMarks().map(mark => mark)}`
     public getCost() {
         return this.Cost;
     }
-
 
     public getType() {
         return this.Type;
@@ -78,30 +76,11 @@ ${this.getMarks().map(mark => mark)}`
     }
 
     public setShipper(shipper: Shipper) {
-        this.shipper = shipper;
+       this.shipper = shipper;
     }
 
     public getShipper() {
         return this.shipper;
-    }
-
-    public getMarks() {
-        const marks: string[] = [];
-        this.marks.map(mark => {
-            switch(mark) {
-                case 0:
-                    marks.push('**MARK FRAGILE**');
-                    break;
-                case 1:
-                    marks.push('**MARK DO NOT LEAVE IF ADDRESS NOT AT HOME**');
-                    break;
-                case 2:
-                    marks.push('**MARK RETURN RECEIPT REQUESTED**');
-                    break;
-            }
-        })
-
-        return marks;
     }
 
     public setMarks(marks: number[]) {

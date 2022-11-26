@@ -1,8 +1,6 @@
 import { Data } from "./Data";
-import { AirWestShipper } from "./Shippers/AirWestShipper";
-import { ChicagoSprintShipper } from "./Shippers/ChicagoSprintShipper";
-import { PacificParcelShipper } from "./Shippers/PacificParcelShipper";
 import { Shipment } from "./Shipments/Shipment";
+import { ShipmentDecorator } from "./Shipments/ShipmentDecorator";
 
 export class Controller {
 
@@ -17,36 +15,9 @@ export class Controller {
         return Controller.controller;
     }
 
-    public sendShippmentToShipper(item: Data, marks: number[]): Shipment {
-
-        if(this.getFromZipCode(item).startsWith('1') 
-            || this.getFromZipCode(item).startsWith('2') 
-            || this.getFromZipCode(item).startsWith('3')) {
-            
-            return this.setShipper(new AirWestShipper(), item, marks);
-        }
-        if(this.getFromZipCode(item).startsWith('4') 
-            || this.getFromZipCode(item).startsWith('5') 
-            || this.getFromZipCode(item).startsWith('6')) {
-
-            return this.setShipper(new ChicagoSprintShipper(), item, marks);
-        }
-        if(this.getFromZipCode(item).startsWith('7') 
-            || this.getFromZipCode(item).startsWith('8') 
-            || this.getFromZipCode(item).startsWith('9')) {
-
-            return this.setShipper(new PacificParcelShipper(), item, marks);
-        }
-            return this.setShipper(new AirWestShipper(), item, marks);
-    }   
-
-    private setShipper(shipper, item, marks): Shipment {
-        const shipment = shipper.getInstance(item, marks);
-        shipper.getCost(shipment);
-        return shipment;
+    public sendShippmentToShipper(item: Data, marks: number[]) {
+        const shipmentDecorator = ShipmentDecorator.getInstance();
+        shipmentDecorator.ship(item, marks);
     }
 
-    private getFromZipCode(item: Data) {
-        return item.FromZipCode;
-    }
 }
