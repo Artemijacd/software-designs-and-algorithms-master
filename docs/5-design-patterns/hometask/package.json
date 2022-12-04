@@ -1,0 +1,11 @@
+{
+  "name": "hw5",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsc ./main.ts && node ./main.js"
+  },
+  "dependencies": {
+    "typescript": "^4.8.4"
+  }
+}
