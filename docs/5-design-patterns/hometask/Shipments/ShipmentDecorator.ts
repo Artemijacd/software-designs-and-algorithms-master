@@ -58,9 +58,9 @@ export class ShipmentDecorator {
             case '6':
                 this.shipment =  this.setShipper(new ChicagoSprintShipper(), item);
 
-            case '4':
-            case '5':
-            case '6':
+            case '7':
+            case '8':
+            case '9':
                 this.shipment =  this.setShipper(new PacificParcelShipper(), item);
             
             default: 
