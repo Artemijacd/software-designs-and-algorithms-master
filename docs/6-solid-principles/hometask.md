@@ -16,8 +16,8 @@ https://github.com/microsoft/vscode/tree/main/src
    | Principle                        |                                    Examples                                        |
    | -------------------------------- |                                    --------                                        |
    | Single Responsibility Principle  |   src/vs/base/browser/browser.ts; line: 9; class: WindowManager                    |
-   | Open / Closed Principle          |   src/vs/base/browser/ui/button/button.ts; line: 45; class: IButton                |
-   | Liskov Substitution Principle    |   src/vs/base/browser/ui/button/button.ts; line: 45; class: IButton                |
+   | Open / Closed Principle          |   src/vs/base/browser/ui/button/button.ts; line: 45; interface: IButton                |
+   | Liskov Substitution Principle    |   src/vs/base/browser/ui/button/button.ts; line: 45; interface: IButton                |
    | Interface Seggregation Principle |   src/vs/base/common/worker/simpleWorker.ts; line: 266; class: SimpleWorkerClient  |
    | Dependency Inversion Principle   |   src/vs/base/common/lifecycle.ts; line: 21; interface: IDisposableTracker         |
 
@@ -32,8 +32,8 @@ https://github.com/microsoft/vscode/tree/main/src
 
    | Principle                        |                                    Examples                                                      |
    | -------------------------------- |                                    --------                                                      |
-   | Single Responsibility Principle  |   src/vs/code/electron-sandbox/processExplorer/processExplorerMain.ts; class: FastDomNode        |
-   | Open / Closed Principle          |   src/vs/code/electron-sandbox/processExplorer/processExplorerMain.ts: line: 317; method: getId  |
-   | Liskov Substitution Principle    |                                                                                                  |
-   | Interface Seggregation Principle |                                                                                                  |
-   | Dependency Inversion Principle   |                                                                                                  |
+   | Single Responsibility Principle  |   src/vs/base/browser/fastDomNode.ts; class: FastDomNode                                         |
+   | Open / Closed Principle          |   src/vs/code/electron-sandbox/processExplorer/processExplorerMain.ts; line: 317; method: getId  |
+   | Liskov Substitution Principle    |   src/vs/editor/browser/viewParts/contentWidgets/contentWidgets.ts; class ViewContentWidgets     |
+   | Interface Seggregation Principle |   src/vs/workbench/browser/codeeditor.ts line: 216; class FloatingClickMenu, Disposible          |
+   | Dependency Inversion Principle   |   src/vs/base/browser/ui/selectBox/selectBoxNative.ts; line: 42; class SelectBoxNative           |
