@@ -1,0 +1,11 @@
+{
+  "name": "hw7",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsc ./main.ts && node ./main.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}
