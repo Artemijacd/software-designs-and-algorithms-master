@@ -1,0 +1,11 @@
+{
+  "name": "hw8",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "main": "tsc ./main.ts && node ./main.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}
